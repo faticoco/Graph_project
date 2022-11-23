@@ -55,7 +55,6 @@ public:
 		{
 			for (int i = 0; i < num.size(); i++)
 			{
-				cout << "\n num " << num[i] << endl;
 				if (num[i] != ' ')
 				{
 					if (f_node == false && num[i] != ' ')      //first node has come and turn it to true
@@ -66,7 +65,7 @@ public:
 						}
 
 						f_node = true;  //first node has passed
-						cout << "first node " << first_node << ": ";
+						cout << first_node << ": ";
 					}
 
 					else if(num[i] != ' ')   //other nodes
@@ -76,7 +75,7 @@ public:
 							other_nodes += num[j];
 						}
 
-						cout << "other node " << other_nodes<<endl;
+						cout << " " << other_nodes;
 
 						//now here add first and other node to the add edge function
 						add_edge(stoi(first_node), stoi(other_nodes));
@@ -87,6 +86,9 @@ public:
 					}
 				}
 			}
+			cout << endl;
+			first_node = "";  //empty first node after a line finsihes
+			f_node = false;
 		}
 		myfile.close();
 	}

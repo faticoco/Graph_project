@@ -94,11 +94,18 @@ public:
 
 	void display()
 	{
-		Node* temp1 = head;
-		while (temp1->next != NULL)
+		if (head == NULL)
 		{
-			cout << temp1->data<<" ";
-		    temp1 = temp1->next;
+			cout << "\nList is empty\n";
+		}
+		else
+		{
+			Node* temp1 = head;
+			while (temp1->next != NULL)
+			{
+				cout << temp1->data << " ";
+				temp1 = temp1->next;
+			}
 		}
 	}
 
