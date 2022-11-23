@@ -35,7 +35,7 @@ public:
 		int j = 0;
 		for (i = 0; i < Vertices; i++)
 		{
-			for (j = 0; j = list->get_size(); ++j)
+			for (j = 0; j < list->get_size(); ++j)
 			{
 				cout << list[i][j]; //overloaded
 			}
@@ -55,23 +55,27 @@ public:
 		{
 			for (int i = 0; i < num.size(); i++)
 			{
+				cout << "\n num " << num[i] << endl;
 				if (num[i] != ' ')
 				{
-					if (f_node == false && num[i] != ' ')   //first space that comes , the prev characters would be first node
+					if (f_node == false && num[i] != ' ')      //first node has come and turn it to true
 					{
-						for (int j = 0; num[j] !=':' ; j++ , i++)
+						for (int j = 0; num[j] !=':' ; j++ , i++) //add into first node string until : arrives
 						{
 							first_node += num[j]; 
 						}
+
 						f_node = true;  //first node has passed
 						cout << "first node " << first_node << ": ";
 					}
-					else if(num[i] != ' ')
+
+					else if(num[i] != ' ')   //other nodes
 					{
 						for (int j = i; num[j] != ' '  ; j++ , i++)   //add into string until next space comes
 						{
 							other_nodes += num[j];
 						}
+
 						cout << "other node " << other_nodes<<endl;
 
 						//now here add first and other node to the add edge function

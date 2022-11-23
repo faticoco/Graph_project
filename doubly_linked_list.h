@@ -28,13 +28,26 @@ public:
 		temp->next =temp->prev= NULL;
 		temp->data = data;
 
-		Node* temp1 = head;
-		while (temp1->next !=NULL)
+		if (head == NULL)
 		{
-			temp1 = temp1->next;
+			head = temp;
 		}
-		temp->prev = temp1;
-		temp1->next = temp;
+		else if (head->next == NULL)
+		{
+			head->next = temp;
+			temp->prev = head;
+		}
+		else
+		{
+
+			Node* temp1 = head;
+			while (temp1->next != NULL)
+			{
+				temp1 = temp1->next;
+			}
+			temp->prev = temp1;
+			temp1->next = temp;
+		}
 		size++;
 	}
 
