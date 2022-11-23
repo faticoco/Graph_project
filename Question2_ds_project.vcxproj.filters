@@ -31,7 +31,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\DatasetFall2022DSproject\friends.txt">
+    <Text Include="friends.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

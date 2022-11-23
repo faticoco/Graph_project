@@ -55,20 +55,20 @@ public:
 		{
 			for (int i = 0; i < num.size(); i++)
 			{
-				if (num[i] == ' ')
+				if (num[i] != ' ')
 				{
-					if (f_node = false && num[i] == ' ')   //first space that comes , the prev characters would be first node
+					if (f_node == false && num[i] != ' ')   //first space that comes , the prev characters would be first node
 					{
-						for (int j = 0; num[j] !=':' ; j++)
+						for (int j = 0; num[j] !=':' ; j++ , i++)
 						{
 							first_node += num[j]; 
 						}
 						f_node = true;  //first node has passed
 						cout << "first node " << first_node << ": ";
 					}
-					else
+					else if(num[i] != ' ')
 					{
-						for (int j = 0; num[j] != ' '  ; j++)   //add into string until next space comes
+						for (int j = i; num[j] != ' '  ; j++ , i++)   //add into string until next space comes
 						{
 							other_nodes += num[j];
 						}
@@ -76,6 +76,9 @@ public:
 
 						//now here add first and other node to the add edge function
 						add_edge(stoi(first_node), stoi(other_nodes));
+
+						//emptying both strings
+						other_nodes = ""; 
 
 					}
 				}
