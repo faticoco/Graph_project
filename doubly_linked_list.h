@@ -1,125 +1,110 @@
 #pragma once
-#include<iostream>
-#include"graph.h"
+#include <iostream>
+#include "graph.h"
 using namespace std;
 
-struct Node
-{
-	int data;
-	Node* prev;
-	Node* next;
+struct Node {
+    int data;
+    Node* prev;
+    Node* next;
 };
 class linked_list {
+   private:
+    Node* head;
+    int size;
 
-private:
-	Node* head;
-	int size;
-public:
-	linked_list()
-	{
-		size = 0;
-		head = NULL;
-	}
+   public:
+    linked_list() {
+        size = 0;
+        head = NULL;
+    }
 
-	//insertion
-	void insert(int data)
-	{
-		Node* temp = new Node;
-		temp->next =temp->prev= NULL;
-		temp->data = data;
+    // insertion
+    void insert(int data) {
+        Node* temp = new Node;
+        temp->data = data;
+        temp->next = NULL;
+        temp->prev = NULL;
+        if (head == NULL) {
+            head = temp;
+            size++;
+        } else {
+            Node* temp2 = head;
+            while (temp2->next != NULL) {
+                temp2 = temp2->next;
+            }
+            temp2->next = temp;
+            temp->prev = temp2;
+            size++;
+        }
+    }
 
-		if (head == NULL)
-		{
-			head = temp;
-		}
-		else if (head->next == NULL)
-		{
-			head->next = temp;
-			temp->prev = head;
-		}
-		else
-		{
+    // deletion
+    void deletion(int data) {
+        Node* temp = head;
+        if (head == NULL) {
+            cout << "list is empty" << endl;
+        } else {
+            while (temp->data != data) {
+                temp = temp->next;
+            }
+            if (temp->prev == NULL) {
+                head = temp->next;
+                temp->next->prev = NULL;
+                delete temp;
+                size--;
+            } else if (temp->next == NULL) {
+                temp->prev->next = NULL;
+                delete temp;
+                size--;
+            } else {
+                temp->prev->next = temp->next;
+                temp->next->prev = temp->prev;
+                delete temp;
+                size--;
+            }
+        }
+    }
 
-			Node* temp1 = head;
-			while (temp1->next != NULL)
-			{
-				temp1 = temp1->next;
-			}
-			temp->prev = temp1;
-			temp1->next = temp;
-		}
-		size++;
-	}
+    bool search(int data) {
+        Node* temp = head;
+        if (head == NULL) {
+            cout << "list is empty" << endl;
+        } else {
+            while (temp->data != data) {
+                temp = temp->next;
+            }
+            if (temp->data == data) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
 
-	//deletion
-	void deletion(int data)
-	{
-		Node* temp1 = head;
-		while (temp1->next !=NULL)
-		{
-			if (temp1->data == data)
-			{
-				Node* temp2 = temp1->prev;
-				Node* temp3 = temp1->next;
-				delete temp1;
-				temp2->next = temp3;
-				temp3->prev = temp2;
-				size--;
-			}
-			else
-			{
-				temp1 = temp1->next;
-			}
-		}
-	}
+    void display() {
+        Node* temp = head;
+        if (head == NULL) {
+            cout << "list is empty" << endl;
+        } else {
+            while (temp != NULL) {
+                cout << temp->data << " ";
+                temp = temp->next;
+            }
+        }
+    }
 
+    int get_size() { return size; }
 
-	bool search(int data)
-	{
-		Node* temp1 = head;
-		while (temp1->next != NULL)
-		{
-			if (temp1->data == data)
-			{
-				return true;
-			}
-			else
-			{
-				temp1 = temp1->next;
-			}
-		}
-		return false;
-	}
-
-
-	void display()
-	{
-		Node* temp1 = head;
-		while (temp1->next != NULL)
-		{
-			cout << temp1->data<<" ";
-		    temp1 = temp1->next;
-		}
-	}
-
-	int get_size()
-	{
-		return size;
-	}
-
-	int operator[](int i)
-	{
-		Node* temp1 = head;
-		int counter = 0;
-		while (temp1->next != NULL)
-		{
-			cout << temp1->data << " ";
-			temp1 = temp1->next;
-			counter++;
-			if (counter == i)
-			{
-				return temp1->data;
-			}
-		}
-	}
+    int operator[](int i) {
+        Node* temp = head;
+        if (head == NULL) {
+            cout << "list is empty" << endl;
+        } else {
+            for (int j = 0; j < i; j++) {
+                temp = temp->next;
+            }
+            return temp->data;
+        }
+    }
 };
