@@ -6,7 +6,6 @@ int main()
 {
 	graph g(6000);
 	g.file_reading();
-	cout << "\nPrinting graph\n";
 	g.printGraph();
 	return 0;
 }
