@@ -4,7 +4,8 @@
 using namespace std;
 int main()
 {
-	graph g;
+	graph g(6000);
 	g.file_reading();
+	g.printGraph();
 	return 0;
 }

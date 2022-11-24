@@ -98,13 +98,11 @@ class linked_list {
 
     int operator[](int i) {
         Node* temp = head;
-        if (head == NULL) {
-            cout << "list is empty" << endl;
-        } else {
-            for (int j = 0; j < i; j++) {
-                temp = temp->next;
-            }
-            return temp->data;
+        int count = 0;
+        while (count != i) {
+            temp = temp->next;
+            count++;
         }
+        return temp->data;
     }
 };
