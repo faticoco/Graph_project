@@ -3,6 +3,9 @@
 #include <iostream>
 #include <string>
 #include "doubly_linked_list.h"
+#include"Node.h"
+#include"Edge.h"
+#include"PATH_GRAPH.h"
 using namespace std;
 
 class graph {
@@ -91,11 +94,44 @@ class graph {
         cout << endl;
     }
     
+
     void add_nodes_edges()
     {
+        linked_list <NODE*> graph_node;
+        linked_list <EDGE*> graph_edge;
 
+        for (int i = 0; i < Vertices; i++)
+        {
+            NODE* temp = new NODE(i);
+            graph_node.insert(temp);
+            
+        }
+        for (int j = 0; j < Vertices; j++)
+        {
+            NODE* node_1 = graph_node[j];
+            for (int k = 0; k < list[j].get_size(); k++)
+            {
+                NODE* node_2 = graph_node[list[j][k]];
+                EDGE* edge = new EDGE(node_1 , node_2);
+            }
+        }
+
+        //printing graph
+
+        for (int i = 0; i < graph_node.get_size(); i++)
+        {
+            cout << graph_node[i]->id<<" ";
+        }
+
+        for (int i = 0; i < graph_edge.get_size(); i++)
+        {
+            cout <<"\nDistance :"<< graph_edge[i]->node_1->id << " ";
+            cout << "\nNode 1 :" << graph_edge[i]->node_2->id << " ";
+            cout << "\nNode 2 :" << graph_edge[i]->dist << " ";
+        }
     }
 
+    
     void file_reading() 
     {
         fstream myfile;

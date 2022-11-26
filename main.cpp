@@ -9,6 +9,6 @@ int main()
 	//g.printGraph();
 	cout<<"\nBiggest social circle of person "<<g.biggest_social_circle()<<endl;
 	g.common_profiles(2001, 2002);
-	
+	g.add_nodes_edges();
 	return 0;
 }

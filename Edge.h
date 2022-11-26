@@ -14,10 +14,10 @@ public:
 	NODE *node_2;
 	int dist;
 
-	EDGE(NODE *node_1 , NODE *node_2 )
+	EDGE(NODE *n1 , NODE *n2 )
 	{
-		this->node_1 = node_1;
-		this->node_2 = node_2;
+		node_1 = n1;
+		node_2 = n2;
 		dist = 1;
 		edges.insert(this);
 	} 
