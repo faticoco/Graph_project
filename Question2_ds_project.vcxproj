@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -139,8 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Edge.h" />
     <ClInclude Include="graph.h" />
     <ClInclude Include="doubly_linked_list.h" />
+    <ClInclude Include="Node.h" />
+    <ClInclude Include="PATH_GRAPH.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="graph.cpp" />

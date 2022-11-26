@@ -3,14 +3,17 @@
 #include "graph.h"
 using namespace std;
 
+template <typename T>
 struct Node {
-    int data;
-    Node* prev;
-    Node* next;
+    T data;
+    Node <T> *prev;
+    Node <T> *next;
 };
+
+template <typename T>
 class linked_list {
    private:
-    Node* head;
+    Node <T>* head;
     int size;
 
    public:
@@ -20,16 +23,19 @@ class linked_list {
     }
 
     // insertion
-    void insert(int data) {
-        Node* temp = new Node;
+    void insert(T data)
+    {
+        Node <T>*temp = new Node<T>;
         temp->data = data;
         temp->next = NULL;
         temp->prev = NULL;
         if (head == NULL) {
             head = temp;
             size++;
-        } else {
-            Node* temp2 = head;
+        } 
+        else 
+        {
+            Node <T>*temp2 = head;
             while (temp2->next != NULL) {
                 temp2 = temp2->next;
             }
@@ -40,8 +46,8 @@ class linked_list {
     }
 
     // deletion
-    void deletion(int data) {
-        Node* temp = head;
+    void deletion(T data) {
+        Node<T>*temp = head;
         if (head == NULL) {
             cout << "list is empty" << endl;
         } else {
@@ -66,24 +72,28 @@ class linked_list {
         }
     }
 
-    bool search(int data) {
-        Node* temp = head;
-        if (head == NULL) {
+    bool search(T val) {
+        Node<T> *temp = head;
+        if (head == NULL)
+        {
             cout << "list is empty" << endl;
-        } else {
-            while (temp->data != data) {
+        } 
+        else
+        {
+            while (temp !=NULL) 
+            {
+                if (temp->data == val)
+                {
+                    return true;
+                }
                 temp = temp->next;
             }
-            if (temp->data == data) {
-                return true;
-            } else {
                 return false;
-            }
         }
     }
 
     void display() {
-        Node* temp = head;
+        Node <T>*temp = head;
         if (head == NULL) {
             cout << "list is empty" << endl;
         } else {
@@ -96,13 +106,31 @@ class linked_list {
 
     int get_size() { return size; }
 
-    int operator[](int i) {
-        Node* temp = head;
+   
+
+    T operator[](int i) {
+        Node <T>*temp = head;
         int count = 0;
-        while (count != i) {
+        while (count != i)
+        {
             temp = temp->next;
             count++;
         }
-        return temp->data;
+
+        if (count == i)
+        {
+            return temp->data;
+        }
+    }
+
+    void empty()
+    {
+        Node <T>*temp = head;
+        while (temp!= NULL)
+        {
+            Node* del = temp;
+            temp = temp->next;
+            delete del;
+        }
     }
 };

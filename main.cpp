@@ -6,6 +6,9 @@ int main()
 {
 	graph g(6000);
 	g.file_reading();
-	g.printGraph();
+	//g.printGraph();
+	cout<<"\nBiggest social circle of person "<<g.biggest_social_circle()<<endl;
+	g.common_profiles(2001, 2002);
+	
 	return 0;
 }
