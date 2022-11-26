@@ -5,6 +5,8 @@
 #include"Node.h"
 using namespace std;
 
+class EDGE;
+
 linked_list <EDGE*>  edges;
 
 class EDGE

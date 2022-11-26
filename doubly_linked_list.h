@@ -128,7 +128,7 @@ class linked_list {
         Node <T>*temp = head;
         while (temp!= NULL)
         {
-            Node* del = temp;
+            Node<T>* del = temp;
             temp = temp->next;
             delete del;
         }
