@@ -1,10 +1,9 @@
-#pragma once
+#ifndef graph_hxx
+#define graph_hxx
+
 #include <fstream>
 #include <iostream>
 #include <string>
-#include "doubly_linked_list.h"
-#include"Node.h"
-#include"Edge.h"
 #include"PATH_GRAPH.h"
 using namespace std;
 
@@ -185,3 +184,4 @@ class graph {
    
 
 };
+#endif // !graph_hxx

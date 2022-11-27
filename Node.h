@@ -1,11 +1,12 @@
-#pragma once
+#ifndef NODE_H
+#define NODE_H
+
 #include <iostream>
 #include <string>
-#include "doubly_linked_list.h"
-#include"graph.h"
+#include"global.h"
 using namespace std;
-class NODE;
-linked_list <NODE*>  nodes;
+
+
 
 class NODE
 {
@@ -22,3 +23,4 @@ public:
 
 
 };
+#endif // !NODE_H

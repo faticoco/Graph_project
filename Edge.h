@@ -1,13 +1,10 @@
-#pragma once
+#ifndef EDGE_H
+#define EDGE_H
+
 #include <iostream>
 #include <string>
-#include "doubly_linked_list.h"
 #include"Node.h"
 using namespace std;
-
-class EDGE;
-
-linked_list <EDGE*>  edges;
 
 class EDGE
 {
@@ -40,3 +37,5 @@ public:
 	}
 
 };
+
+#endif // !EDGE_H

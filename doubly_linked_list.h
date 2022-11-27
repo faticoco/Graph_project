@@ -1,6 +1,7 @@
-#pragma once
+#ifndef doubly_linked_list_h
+#define doubly_linked_list_h
+
 #include <iostream>
-#include "graph.h"
 using namespace std;
 
 template <typename T>
@@ -134,3 +135,4 @@ class linked_list {
         }
     }
 };
+#endif // !double_linked_list_h

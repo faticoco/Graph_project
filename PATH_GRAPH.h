@@ -1,7 +1,7 @@
-#pragma once
-#include"doubly_linked_list.h"
+#ifndef path_graph_h
+#define path_graph_h
+
 #include"Edge.h"
-#include"Node.h"
 
 class path_graph {
 public:
@@ -141,3 +141,4 @@ public:
 
 
 };
+#endif // !path_graph_h
