@@ -112,24 +112,20 @@ class graph {
             {
                 NODE* node_2 = graph_node[list[j][k]];
                 EDGE* edge = new EDGE(node_1 , node_2);
+                graph_edge.insert(edge);
             }
-        }
-
-        //printing graph
-
-        for (int i = 0; i < graph_node.get_size(); i++)
-        {
-            cout << graph_node[i]->id<<" ";
-        }
-
-        for (int i = 0; i < graph_edge.get_size(); i++)
-        {
-            cout <<"\nDistance :"<< graph_edge[i]->node_1->id << " ";
-            cout << "\nNode 1 :" << graph_edge[i]->node_2->id << " ";
-            cout << "\nNode 2 :" << graph_edge[i]->dist << " ";
         }
     }
 
+
+    void calculate_social_distance_between_profiles(int id1, int id2)
+    {
+        NODE *N1= nodes.operator[](id1);
+        NODE* N2 = nodes.operator[](id2);
+        path_graph p;
+        p.distance_between_two_nodes( N1  , N2);    
+       
+    }
     
     void file_reading() 
     {

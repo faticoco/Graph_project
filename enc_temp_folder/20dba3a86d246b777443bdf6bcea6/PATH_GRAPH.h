@@ -46,8 +46,7 @@ public:
 		while (counter < n.get_size())
 		{
 			NODE* node = n.operator[](counter);
-			if (  small->dist_from_the_first_node > node->dist_from_the_first_node)
-			{	small = node;  s_location = counter; }
+			if (  small->dist_from_the_first_node > node->dist_from_the_first_node)  {	small = node;  s_location = counter; }
 			counter++;
 		}
 		 
