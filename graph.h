@@ -99,13 +99,13 @@ class graph {
         linked_list <NODE*> graph_node;
         linked_list <EDGE*> graph_edge;
 
-        for (int i = 0; i < Vertices; i++)
+        for (int i = 0; i < 2501; i++)
         {
             NODE* temp = new NODE(i);
             graph_node.insert(temp);
             
         }
-        for (int j = 0; j < Vertices; j++)
+        for (int j = 0; j < 2501; j++)
         {
             NODE* node_1 = graph_node[j];
             for (int k = 0; k < list[j].get_size(); k++)
@@ -123,7 +123,7 @@ class graph {
         NODE *N1= nodes.operator[](id1);
         NODE* N2 = nodes.operator[](id2);
         path_graph p;
-        p.distance_between_two_nodes( N1  , N2);    
+        p.distance_between_two_nodes( N1  , N2);
        
     }
     
