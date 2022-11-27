@@ -33,26 +33,26 @@ public:
 		}
 	}
 
-	NODE* get_smallest_node(linked_list <NODE *> & nodes)
+	NODE* get_smallest_node(linked_list <NODE *> & n)
 	{
-		if (nodes.get_size() == 0)
+		if (n.get_size() == 0)
 		{
 			return NULL; 
 		} 
 		int s_location = 0;
-		NODE  *small = nodes.operator[](0);
+		NODE  *small = n.operator[](0);
 		int counter = 1;
 
-		while (counter < nodes.get_size())
+		while (counter < n.get_size())
 		{
-			NODE* node = nodes.operator[](counter);
+			NODE* node = n.operator[](counter);
 			if (  small->dist_from_the_first_node > node->dist_from_the_first_node)  {	small = node;  s_location = counter; }
 			counter++;
 		}
 		 
 		for (int i = 0; i < s_location; i++)
 		{
-		    delete nodes.operator[](0);     //deleting starting nodes till current
+		    delete n.operator[](0);     //deleting starting nodes till current
 		}
 		return small;
 	}
